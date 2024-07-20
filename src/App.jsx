@@ -11,6 +11,7 @@ const App = () => {
       setItems([...items, inputValue]);
       setInputValue('');
     }
+    inputRef.current.blur(); // Снять фокус с текстового поля
   };
 
   useEffect(() => {
@@ -20,6 +21,10 @@ const App = () => {
   useEffect(() => {
     listEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
+
+  const handleInputFocus = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+  };
 
   return (
     <div className='app-container'>
@@ -40,7 +45,7 @@ const App = () => {
           type='text'
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          onFocus={() => window.scrollTo(0, document.body.scrollHeight)}
+          onFocus={handleInputFocus}
         />
         <button onClick={handleAddItem}>Send</button>
       </footer>

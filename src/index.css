@@ -1,13 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
+/* Предотвращаем скроллинг за пределы приложения */
+html,
 body {
-  background-color: blue;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  /* Добавляем шрифт */
 }
 
 .app-container {
@@ -15,12 +13,16 @@ body {
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
+  background-color: #f8f9fa;
+  /* Светлый фон */
 }
 
 .app-header {
-  background-color: #f1f1f1;
+  background-color: #343a40;
+  /* Темный фон заголовка */
   padding: 10px;
   text-align: center;
+  color: white;
 }
 
 .items-list {
@@ -31,12 +33,15 @@ body {
 
 .item {
   height: 70px;
-  background-color: red;
+  background-color: #dc3545;
+  /* Красный фон */
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  border-radius: 4px;
+  /* Небольшой радиус для скругления углов */
 }
 
 .app-footer {
@@ -44,14 +49,34 @@ body {
   align-items: center;
   padding: 10px;
   background-color: #f1f1f1;
+  padding-bottom: env(safe-area-inset-bottom);
+  /* SafeArea */
 }
 
 .app-footer input {
   flex: 1;
   padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 .app-footer button {
-  padding: 10px 20px;
+  padding: 20px 30px;
   margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.app-footer button:hover {
+  background-color: #0056b3;
+}
+
+.app-footer button:active {
+  background-color: #004085;
 }
